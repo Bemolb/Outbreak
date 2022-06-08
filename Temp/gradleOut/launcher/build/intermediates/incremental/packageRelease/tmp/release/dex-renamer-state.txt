@@ -1,0 +1,4 @@
+#Wed Jun 08 17:36:31 MSK 2022
+base.0=/Users/svyatoslav/Outbreak/Temp/gradleOut/launcher/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
