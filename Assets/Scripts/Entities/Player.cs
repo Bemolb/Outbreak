@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
     public float Damage;
     public float AttackRange;
 
+    
+    public NavMeshAgent Agent { get; private set; }
 
-    private Animator _animator;
-    private NavMeshAgent _agent;
+    private IAnimatorService _animatorService;
     private LineRenderer _line;
+    private Collider _collider;
     private float _canelRunDist;
+    private bool _isDead;
 
     private PlayerStorage _playerStorage = new PlayerStorage();
 
@@ -20,41 +23,44 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        _animator = GetComponent<Animator>();
-        _agent = GetComponent<NavMeshAgent>();
+        _animatorService = new PlayerAnimatorService(this);
+        Agent = GetComponent<NavMeshAgent>();
         _line = GetComponent<LineRenderer>();
-        _agent.autoRepath = true;
-        _agent.autoBraking = true;
-        _agent.speed = MoveSpeed;
+        _collider = GetComponent<CapsuleCollider>();
+        Agent.autoRepath = true;
+        Agent.autoBraking = true;
+        Agent.speed = MoveSpeed;
         _canelRunDist = MoveSpeed * 0.2f;
     }
 
     private void Update()
     {
+        if (_isDead)
+            return;
         MoveAnim();
     }
 
     public void Move(Vector3 position)
     {
+        if (_isDead)
+            return;
         NavMeshPath path = new NavMeshPath();
-        _agent.CalculatePath(position, path);
+        Agent.CalculatePath(position, path);
         if (path.status != NavMeshPathStatus.PathComplete)
             return;
-        _agent.SetPath(path);
-        DrawPath(_agent.path);
+        Agent.SetPath(path);
     }
 
     private void MoveAnim()
     {
-        if (_agent.remainingDistance >= _canelRunDist)
+        if (Agent.remainingDistance >= _canelRunDist)
         {
-            _animator.SetBool("isMove", true);
-            _animator.speed = _agent.velocity.magnitude / _agent.speed;
-            DrawPath(_agent.path);
+            _animatorService.PlayMoveAnim();
+            DrawPath(Agent.path);
         }
         else
         {
-            _animator.SetBool("isMove", false);
+            _animatorService.StopMoveAnim();
             _line.positionCount = 0;
         }
     }
@@ -74,8 +80,11 @@ public class Player : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
-            _animator.SetTrigger("death");
-            Destroy(gameObject);
+            _animatorService.PlayDeathAnim();
+            Destroy(Agent);
+            Destroy(_collider);
+            Destroy(_line);
+            _isDead = true;
             _playerStorage.RemovePlayer(this);
         }
     }

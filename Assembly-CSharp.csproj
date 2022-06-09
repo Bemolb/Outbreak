@@ -65,7 +65,9 @@
     <Compile Include="Assets/Scripts/Location/LocationGenerator.cs" />
     <Compile Include="Assets/Scripts/Utils/Enums/EnumExtensions.cs" />
     <Compile Include="Assets/Scripts/Utils/Enums/ChunkSide.cs" />
+    <Compile Include="Assets/Scripts/UI/ReloadSceneButton.cs" />
     <Compile Include="Assets/Scripts/Movment/CameraMovment.cs" />
+    <Compile Include="Assets/Scripts/UI/LocationUIManage.cs" />
     <Compile Include="Assets/Scripts/Movment/EnemyMovment.cs" />
     <Compile Include="Assets/Scripts/Utils/Starage/PlayerStorage.cs" />
     <Compile Include="Assets/Scripts/Units/PlayerManager.cs" />
@@ -74,8 +76,9 @@
     <Compile Include="Assets/Scripts/Utils/Starage/ChunkStorage.cs" />
     <Compile Include="Assets/Scripts/Movment/PlayerMovment.cs" />
     <Compile Include="Assets/Scripts/Entities/LocationEntities/Chunk.cs" />
-    <Compile Include="Assets/Scripts/UI/ReloadSceneButton.cs" />
-    <Compile Include="Assets/Scripts/UI/LocationUIManage.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/IAnimatorService.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/PlayerAnimatorService.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/EnemyAnimatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

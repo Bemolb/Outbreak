@@ -397,7 +397,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.8207547, g: 0.79472446, b: 0.70848167, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -432,10 +432,10 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -567,11 +567,11 @@ MonoBehaviour:
   - {fileID: 5094692335378854536, guid: a23797f2f015d412aad95d31ce314883, type: 3}
   - {fileID: 2126758271104349964, guid: f79047c874036460fb1bdb05e322c27c, type: 3}
   PlayerPrefabs:
-  - {fileID: 2133806873459440841, guid: 347329ee4d1ca422dbd029c226271475, type: 3}
-  - {fileID: 2133806873459440841, guid: 347329ee4d1ca422dbd029c226271475, type: 3}
+  - {fileID: 7600442913894352199, guid: 15d3ed90eb166aa4e9de7f63be94a87b, type: 3}
+  - {fileID: -8571112815070795547, guid: 0457555b5679fc24481a83b42665ede5, type: 3}
+  - {fileID: 4810791644751436647, guid: 914fd54b381fbcd41935572eabb11d13, type: 3}
   Camera: {fileID: 963194227}
-  Dificult: 9
-  ReloadButton: {fileID: 614482285}
+  Dificult: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.18111429, g: 0.4654527, b: 0.6981132, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
