@@ -41,11 +41,36 @@ public class PlayerManager : MonoBehaviour
         Movement();
     }
 
+
+    bool one_click = false;
+    float timer_for_double_click;
+    float delay = 0.5f;
+
     public void Movement()
     {
+        bool isDoubleClick = false;
 #if UNITY_EDITOR
+
         if (Input.GetMouseButtonDown(1))
         {
+            if (!one_click)
+            {
+                timer_for_double_click = Time.time;
+                one_click = true;
+            }
+            else
+            {
+                if ((Time.time - timer_for_double_click) > delay)
+                {
+                    timer_for_double_click = Time.time;
+                    one_click = false;
+                }
+                else
+                {
+                    isDoubleClick = true;
+                    one_click = false;
+                }
+            }
             RaycastHit hit;
             Ray castPoint = _cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
@@ -54,9 +79,13 @@ public class PlayerManager : MonoBehaviour
                 _positionChanged = true;
             }
         }
+        else
+            return;
+
 #else
         if (Input.touchCount >= 1)
         {
+            
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
@@ -68,15 +97,19 @@ public class PlayerManager : MonoBehaviour
                     _positionChanged = true;
                 }
             }
+            if (Input.GetTouch(0).tapCount >= 2)
+                isDoubleClick = true;
         }
+        else
+            return;
 #endif
-        if(_positionChanged)
+        if (_positionChanged)
         {
             _positionChanged = false;
             foreach(var player in _playerStorage.GetPlayers())
             {
                 var position = _movePosition.GetRandomPointInRange(_playerStorage.Count / 2.0f);
-                player.Move(position);
+                player.Move(position, isDoubleClick);
             }
         }
     }

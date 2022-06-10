@@ -30,20 +30,25 @@ public class Player : MonoBehaviour
         Agent.autoRepath = true;
         Agent.autoBraking = true;
         Agent.speed = MoveSpeed;
-        _canelRunDist = MoveSpeed * 0.2f;
+        _canelRunDist = Agent.speed * 0.2f;
     }
 
     private void Update()
     {
         if (_isDead)
             return;
-        MoveAnim();
+        OnMovement();
     }
 
-    public void Move(Vector3 position)
+    public void Move(Vector3 position, bool isRun)
     {
         if (_isDead)
             return;
+        if (isRun)
+            Agent.speed = MoveSpeed * 1.5f;
+        else
+            Agent.speed = MoveSpeed;
+        _canelRunDist = Agent.speed * 0.2f;
         NavMeshPath path = new NavMeshPath();
         Agent.CalculatePath(position, path);
         if (path.status != NavMeshPathStatus.PathComplete)
@@ -51,8 +56,10 @@ public class Player : MonoBehaviour
         Agent.SetPath(path);
     }
 
-    private void MoveAnim()
+    private void OnMovement()
     {
+        if (Agent.remainingDistance <= Agent.speed)
+            Agent.speed = MoveSpeed;
         if (Agent.remainingDistance >= _canelRunDist)
         {
             _animatorService.PlayMoveAnim();

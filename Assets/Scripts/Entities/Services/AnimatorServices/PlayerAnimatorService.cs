@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,12 @@ public class PlayerAnimatorService : IAnimatorService
     public void PlayMoveAnim()
     {
         _animator.SetBool("isMove", true);
-        _animator.speed = _player.Agent.velocity.magnitude / _player.Agent.speed;
+        float currSpeed = (float)Math.Round(_player.Agent.velocity.magnitude, 2);
+        if (currSpeed > _player.MoveSpeed)
+            _animator.SetBool("isRun", true);
+        else
+            _animator.SetBool("isRun", false);
+        _animator.speed = currSpeed / _player.Agent.speed;
     }
 
     public void StopAttackAnim()
@@ -41,5 +47,6 @@ public class PlayerAnimatorService : IAnimatorService
     public void StopMoveAnim()
     {
         _animator.SetBool("isMove", false);
+        _animator.SetBool("isRun", false);
     }
 }

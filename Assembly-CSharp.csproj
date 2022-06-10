@@ -63,12 +63,15 @@
     <Compile Include="Assets/Scripts/Utils/Enums/ChunckOrientation.cs" />
     <Compile Include="Assets/Scripts/Utils/Extensions.cs" />
     <Compile Include="Assets/Scripts/Location/LocationGenerator.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/PlayerAnimatorService.cs" />
     <Compile Include="Assets/Scripts/Utils/Enums/EnumExtensions.cs" />
     <Compile Include="Assets/Scripts/Utils/Enums/ChunkSide.cs" />
     <Compile Include="Assets/Scripts/UI/ReloadSceneButton.cs" />
     <Compile Include="Assets/Scripts/Movment/CameraMovment.cs" />
     <Compile Include="Assets/Scripts/UI/LocationUIManage.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/EnemyAnimatorService.cs" />
     <Compile Include="Assets/Scripts/Movment/EnemyMovment.cs" />
+    <Compile Include="Assets/Scripts/Entities/Services/IAnimatorService.cs" />
     <Compile Include="Assets/Scripts/Utils/Starage/PlayerStorage.cs" />
     <Compile Include="Assets/Scripts/Units/PlayerManager.cs" />
     <Compile Include="Assets/Scripts/Entities/Enemy.cs" />
@@ -76,9 +79,6 @@
     <Compile Include="Assets/Scripts/Utils/Starage/ChunkStorage.cs" />
     <Compile Include="Assets/Scripts/Movment/PlayerMovment.cs" />
     <Compile Include="Assets/Scripts/Entities/LocationEntities/Chunk.cs" />
-    <Compile Include="Assets/Scripts/Entities/Services/IAnimatorService.cs" />
-    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/PlayerAnimatorService.cs" />
-    <Compile Include="Assets/Scripts/Entities/Services/AnimatorServices/EnemyAnimatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -648,17 +648,11 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Notifications">
-      <HintPath>Library/ScriptAssemblies/Unity.Notifications.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -668,9 +662,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="NavMeshComponentsEditor">
-      <HintPath>Library/ScriptAssemblies/NavMeshComponentsEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -684,14 +675,23 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Notifications">
+      <HintPath>Library/ScriptAssemblies/Unity.Notifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Notifications.iOS">
+      <HintPath>Library/ScriptAssemblies/Unity.Notifications.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="NavMeshComponents">
       <HintPath>Library/ScriptAssemblies/NavMeshComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshComponentsEditor">
+      <HintPath>Library/ScriptAssemblies/NavMeshComponentsEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Notifications.Android">
       <HintPath>Library/ScriptAssemblies/Unity.Notifications.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Notifications.iOS">
-      <HintPath>Library/ScriptAssemblies/Unity.Notifications.iOS.dll</HintPath>
+    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
