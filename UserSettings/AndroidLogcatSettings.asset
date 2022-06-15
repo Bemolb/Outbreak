@@ -1,13 +1,50 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "d52a288a",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "d52a288a",
+        "name": "com.DefaultCompany.Outbreak",
+        "processId": 26997,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "d52a288a",
+            "name": "com.android.settings",
+            "processId": 18332,
+            "exited": true
+        },
+        {
+            "deviceId": "d52a288a",
+            "name": "com.DefaultCompany.Outbreak",
+            "processId": 17382,
+            "exited": true
+        },
+        {
+            "deviceId": "d52a288a",
+            "name": "com.DefaultCompany.Outbreak",
+            "processId": 21586,
+            "exited": true
+        },
+        {
+            "deviceId": "d52a288a",
+            "name": "com.miui.global.packageinstaller",
+            "processId": 24909,
+            "exited": true
+        },
+        {
+            "deviceId": "d52a288a",
+            "name": "com.DefaultCompany.Outbreak",
+            "processId": 25277,
+            "exited": true
+        },
+        {
+            "deviceId": "d52a288a",
+            "name": "com.DefaultCompany.Outbreak",
+            "processId": 26997,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +78,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 2,
         "Behavior": 0
     },

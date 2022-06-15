@@ -40,4 +40,12 @@ public class ChunkStorage
 
     public Chunk FirstOrDefault(Func<Chunk, bool> expression = null) => _allChunks.FirstOrDefault(expression);
 
+    public void Cleare()
+    {
+        lock (_allChunks)
+        {
+            _allChunks.Clear();
+        }
+    }
+
 }

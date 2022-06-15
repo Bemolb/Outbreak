@@ -33,4 +33,12 @@ public class PlayerStorage
         GameObject clothestPlayer = _allPlayers.OrderBy(p => Vector3.Distance(fromCord, p.transform.position)).First().gameObject;
         return clothestPlayer;
     }
+
+    public void Cleare()
+    {
+        lock(_allPlayers)
+        {
+            _allPlayers.Clear();
+        }
+    }
 }
